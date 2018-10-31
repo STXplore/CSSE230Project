@@ -5,6 +5,9 @@ public class Place {
 	
 	private ArrayList<Link> links;
 	
+	private ArrayList<String> pointsKeys;
+	private Hashtable<String, PointOfInterest> points;
+	
 	private String name;
 	
 	
@@ -18,7 +21,27 @@ public class Place {
 		links = new ArrayList<Link>();
 	}
 	
+	public void addLink(Link l) {
+		links.add(l);
+	}
 	
+	public void addPoint(PointOfInterest p) {
+		pointsKeys.add(p.getName());
+		points.put(p.getName(), p);
+		p.setParent(this);
+	}
+	
+	public ArrayList<Link> getLinks() {
+		return links;
+	}
+	
+	public ArrayList<String> getPointsKeys() {
+		return pointsKeys;
+	}
+	
+	public PointOfInterest getPoint(String key) {
+		return points.get(key);
+	}
 	
 	public String getName() {
 		return name;

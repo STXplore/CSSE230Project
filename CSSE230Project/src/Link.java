@@ -1,11 +1,18 @@
 
 public class Link {
 
-	public String key;
-	public double[] costs;
+	private String key;
+	private double[] costs;
+	private final int numCosts = 2;
 	
 	public Link(String name) {
 		this.key = name;
+		costs = new double[numCosts];
+	}
+	
+	public Link(String name, double[] costs) {
+		this.key = name;
+		this.costs = costs;
 	}
 	
 	public String getKey() {
@@ -14,6 +21,14 @@ public class Link {
 	
 	public double getCost(int i) {
 		return costs[i];
+	}
+	
+	public void setCost(int index, int value) {
+		costs[index] = value;
+	}
+	
+	public String toString() {
+		return "Link to " + key;
 	}
 	
 }
