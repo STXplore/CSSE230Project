@@ -16,4 +16,12 @@ public class Graph {
 		keys.add(p.getName());
 	}
 	
+	public Place getPlace(String key) {
+		return places.get(key);
+	}
+	
+	public ArrayList<String> getKeys() {
+		return keys;
+	}
+	
 }
