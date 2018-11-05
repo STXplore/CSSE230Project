@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.NoSuchElementException;
 
 public class Graph {
 
@@ -17,7 +18,18 @@ public class Graph {
 	}
 	
 	public Place getPlace(String key) {
-		return places.get(key);
+		
+		if(key == null) {
+			throw new IllegalArgumentException();
+		}
+		
+		Place ret = places.get(key);
+		
+		if (ret == null) {
+			throw new NoSuchElementException();
+		}
+		
+		return ret;
 	}
 	
 	public ArrayList<String> getKeys() {
