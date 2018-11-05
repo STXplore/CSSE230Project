@@ -8,6 +8,7 @@ public class Main{
 	 */
 	public static void main(String[] args) {
 		JFrame v = new Visualizer();
+		FileParser p = new FileParser();
 		v.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		v.setVisible(true);
 	}

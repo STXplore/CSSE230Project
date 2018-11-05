@@ -24,4 +24,16 @@ public class Graph {
 		return keys;
 	}
 	
+	public void string(){
+		for(int i = 0; i < places.size(); i++){
+			System.out.println("city: " + keys.get(i));
+			ArrayList<Link> listOfLinks =  places.get(keys.get(i)).getLinks();
+			for(int j = 0; j < listOfLinks.size(); j++){
+				System.out.println("	link: " + listOfLinks.get(j).getKey());
+				System.out.println("		cost1: " + listOfLinks.get(j).getCost(0));
+				System.out.println("		cost2: " + listOfLinks.get(j).getCost(1));				
+			}
+		}
+	}
+	
 }

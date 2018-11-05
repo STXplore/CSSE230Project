@@ -1,0 +1,26 @@
+PLACE
+Indianapolis
+LINK
+Terre Haute
+4
+5
+LINK
+Fort Wayne
+9
+10
+PLACE
+Terre Haute
+LINK
+Indianapolis
+4
+5
+LINK
+Gary
+3
+1
+PLACE
+Gary
+LINK
+Terre Haute
+3
+1
