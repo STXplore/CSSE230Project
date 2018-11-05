@@ -12,6 +12,9 @@ import javax.swing.JTextField;
 
 public class Visualizer extends JFrame{
 	
+	private final String defaultText1 = "Current City";
+	private final String defaultText2 = "Destination (if necessary)";
+	
 	public Visualizer(){
 		setTitle("City Guide");
 		
@@ -19,8 +22,8 @@ public class Visualizer extends JFrame{
 		JPanel content = new JPanel();
 		content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
 		JButton searchButton = new JButton("Search");
-		JTextField primaryCity = new JTextField("Current City");
-		JTextField secondaryCity = new JTextField("Destination (if necessary)");
+		JTextField primaryCity = new JTextField(defaultText1);
+		JTextField secondaryCity = new JTextField(defaultText2);
 		JLabel title = new JLabel("Get Route/City Info");
 		content.add(title);
 		content.add(searchButton);
@@ -57,11 +60,11 @@ public class Visualizer extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e){
 				//search for cities
-				if(primaryCity.getText().isEmpty()){
+				if(primaryCity.getText().isEmpty() || primaryCity.getText().equals(defaultText1)){
 					JFrame v = new ErrorVisualizer();
 					v.setVisible(true);
 				} else{
-					if(secondaryCity.getText().isEmpty()){
+					if(secondaryCity.getText().isEmpty() || secondaryCity.getText().equals(defaultText2)){
 						JFrame v = new SingleCityVisualizer(primaryCity.getText());
 						v.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 						v.setVisible(true);
