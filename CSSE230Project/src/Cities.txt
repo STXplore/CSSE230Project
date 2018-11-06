@@ -11,7 +11,7 @@ Fort Wayne
 LINK
 Bloomington
 3
-2
+3
 PLACE
 Terre Haute
 LINK
@@ -41,4 +41,4 @@ Terre Haute
 LINK
 Indianapolis
 3
-2
+3
