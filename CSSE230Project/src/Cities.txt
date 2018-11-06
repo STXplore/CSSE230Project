@@ -3,24 +3,42 @@ Indianapolis
 LINK
 Terre Haute
 4
-5
+2
 LINK
 Fort Wayne
 9
 10
+LINK
+Bloomington
+3
+2
 PLACE
 Terre Haute
 LINK
 Indianapolis
 4
-5
+2
 LINK
 Gary
 3
 1
+LINK
+Bloomington
+6
+6
 PLACE
 Gary
 LINK
 Terre Haute
 3
 1
+PLACE
+Bloomington
+LINK
+Terre Haute
+6
+6
+LINK
+Indianapolis
+3
+2
