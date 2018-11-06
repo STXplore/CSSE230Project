@@ -1,4 +1,5 @@
 import java.util.Hashtable;
+import java.util.NoSuchElementException;
 import java.util.ArrayList;
 
 public class Place {
@@ -40,7 +41,18 @@ public class Place {
 	}
 	
 	public PointOfInterest getPoint(String key) {
-		return points.get(key);
+		
+		if(key == null) {
+			throw new IllegalArgumentException();
+		}
+		
+		PointOfInterest ret = points.get(key);
+		
+		if (ret == null) {
+			throw new NoSuchElementException();
+		}
+		
+		return ret;
 	}
 	
 	public String getName() {
