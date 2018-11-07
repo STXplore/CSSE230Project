@@ -53,7 +53,7 @@ public class Graph {
 		}
 		
 		Vertex cur = vertices.poll();
-		while(!vertices.isEmpty() && !cur.getPlace().getName().equals(finish)) {
+		while(!vertices.isEmpty() && !cur.getName().equals(finish)) {
 			for(int i = 0; i < cur.getPlace().getLinks().size(); i++) {
 				Link l = cur.getPlace().getLinks().get(i);
 				Vertex temp =  verticesList.get(l.getKey());
@@ -74,8 +74,8 @@ public class Graph {
 		ArrayList<String> path = new ArrayList<String>();
 		path.add(temp.getPlace().getName());
 		while(temp.getLast() != null) {
-			temp = verticesList.get(temp.getLast().getName());
-			path.add(temp.getPlace().getName());
+			temp = verticesList.get(temp.getName());
+			path.add(temp.getName());
 		}
 		
 		

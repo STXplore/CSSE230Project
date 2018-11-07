@@ -34,6 +34,10 @@ public class Vertex implements Comparable<Vertex> {
 		return cost;
 	}
 	
+	public String getName() {
+		return vert.getName();
+	}
+	
 	public void setCost(double cost) {
 		this.cost = cost;
 	}
