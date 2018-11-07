@@ -74,7 +74,7 @@ public class Graph {
 		ArrayList<String> path = new ArrayList<String>();
 		path.add(temp.getPlace().getName());
 		while(temp.getLast() != null) {
-			temp = verticesList.get(temp.getName());
+			temp = verticesList.get(temp.getLast().getName());
 			path.add(temp.getName());
 		}
 		
