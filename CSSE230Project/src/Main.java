@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 import javax.swing.JFrame;
 
 public class Main{
@@ -7,9 +9,17 @@ public class Main{
 	 * @param args ignored
 	 */
 	public static void main(String[] args) {
-		JFrame v = new Visualizer();
 		FileParser p = new FileParser();
-		v.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		v.setVisible(true);
+		Graph g = null;
+		try {
+			g = p.parseFile();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		if(g != null){
+			JFrame v = new Visualizer(g);
+			v.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			v.setVisible(true);
+		}
 	}
 }

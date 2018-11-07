@@ -11,8 +11,8 @@ import javax.swing.JPanel;
 public class TwoCityVisualizer extends JFrame{
 
 	
-	public TwoCityVisualizer(String primary, String secondary){
-		setTitle("Routes: " + primary + " to " + secondary);
+	public TwoCityVisualizer(Graph g, Place primary, Place secondary){
+		setTitle("Routes: " + primary.getName() + " to " + secondary.getName());
 		
 		setSize(400, 150);
 		JPanel content = new JPanel();
@@ -20,7 +20,7 @@ public class TwoCityVisualizer extends JFrame{
 		//lots of these have placeholder data right now but it won't be too hard to add in
 		//the actual data.
 		JButton closeButton = new JButton("Search Again");
-		JLabel title = new JLabel("Route from " + primary + " to " + secondary);
+		JLabel title = new JLabel("Route from " + primary.getName() + " to " + secondary.getName());
 		JLabel distanceTitle = new JLabel("Shortest Distance: ");
 		JLabel distanceRoute = new JLabel("City-City-City-City-City");
 		JLabel timeTitle = new JLabel("Fastest drive: ");
@@ -29,7 +29,7 @@ public class TwoCityVisualizer extends JFrame{
 		ActionListener close = new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e){
-				JFrame v = new Visualizer();
+				JFrame v = new Visualizer(g);
 				v.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				v.setVisible(true);
 				TwoCityVisualizer.super.dispose();

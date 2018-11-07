@@ -25,7 +25,7 @@ public class FileParser {
 			}
 		}
 		s.close();
-		g.string();
+//		g.printGraph();
 		return g;
 	}
 	
@@ -41,10 +41,19 @@ public class FileParser {
 				costs[1] = s.nextDouble();	
 				Link l = new Link(linkName, costs);
 				p.addLink(l);
+			} else if(line.equals("POINT")){
+				addPoint(s, p);
 			} else if(line.equals("PLACE")){
 				addPlace(s, g);
 			}
 		}
 		g.addPlace(p);
+	}
+	
+	public void addPoint(Scanner s, Place p){
+		PointOfInterest point = new PointOfInterest();
+		String pointName = s.nextLine();
+		point.setName(pointName);
+		p.addPoint(point);
 	}
 }

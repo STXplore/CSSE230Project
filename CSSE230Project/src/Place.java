@@ -15,11 +15,15 @@ public class Place {
 	public Place() {
 		name = "";
 		links = new ArrayList<Link>();
+		pointsKeys = new ArrayList<String>();
+		points = new Hashtable<String, PointOfInterest>();
 	}
 	
 	public Place(String name) {
 		this.name = name;
 		links = new ArrayList<Link>();
+		pointsKeys = new ArrayList<String>();
+		points = new Hashtable<String, PointOfInterest>();
 	}
 	
 	public void addLink(Link l) {
@@ -77,6 +81,12 @@ public class Place {
 		this.name = name;
 	}
 
-	
+	public String getSinglePointOfInterest(){
+		if(pointsKeys.size() == 0){
+			return "None";
+		} else{
+			return this.pointsKeys.get(0);
+		}
+	}
 
 }
