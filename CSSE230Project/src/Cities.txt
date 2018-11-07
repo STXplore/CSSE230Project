@@ -8,10 +8,14 @@ LINK
 Fort Wayne
 9
 10
+POINT
+IUPUI Campus
 LINK
 Bloomington
 3
 3
+POINT
+State Capitol
 PLACE
 Terre Haute
 LINK
