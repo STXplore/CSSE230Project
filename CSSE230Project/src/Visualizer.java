@@ -2,6 +2,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.util.NoSuchElementException;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -15,21 +16,24 @@ public class Visualizer extends JFrame{
 	private final String defaultText1 = "Current City";
 	private final String defaultText2 = "Destination (if necessary)";
 	
-	public Visualizer(){
+	public Visualizer(Graph g){
 		setTitle("City Guide");
 		
-		this.setSize(400, 150);
+		this.setSize(400, 200);
 		JPanel content = new JPanel();
 		content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
 		JButton searchButton = new JButton("Search");
-		JTextField primaryCity = new JTextField(defaultText1);
-		JTextField secondaryCity = new JTextField(defaultText2);
+		JLabel primaryCityTitle = new JLabel(defaultText1);
+		JTextField primaryCity = new JTextField();
+		JLabel secondaryCityTitle = new JLabel(defaultText2);
+		JTextField secondaryCity = new JTextField();
 		JLabel title = new JLabel("Get Route/City Info");
 		content.add(title);
-		content.add(searchButton);
+		content.add(primaryCityTitle);
 		content.add(primaryCity);
+		content.add(secondaryCityTitle);
 		content.add(secondaryCity);
-
+		content.add(searchButton);
 		
 		FocusListener primaryCheck = new FocusListener(){
 			@Override
@@ -65,15 +69,27 @@ public class Visualizer extends JFrame{
 					v.setVisible(true);
 				} else{
 					if(secondaryCity.getText().isEmpty() || secondaryCity.getText().equals(defaultText2)){
-						JFrame v = new SingleCityVisualizer(primaryCity.getText());
+						try{
+						JFrame v = new SingleCityVisualizer(g, g.getPlace(primaryCity.getText()));
 						v.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 						v.setVisible(true);
 						Visualizer.super.dispose();
+						} catch (NoSuchElementException ex){
+							JFrame v = new ErrorVisualizer();
+							v.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+							v.setVisible(true);
+						}
 					}else{
-						JFrame v = new TwoCityVisualizer(primaryCity.getText(), secondaryCity.getText());
+						try{
+						JFrame v = new TwoCityVisualizer(g, g.getPlace(primaryCity.getText()), g.getPlace(secondaryCity.getText()));
 						v.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 						v.setVisible(true);
 						Visualizer.super.dispose();
+						} catch (NoSuchElementException exc){
+							JFrame v = new ErrorVisualizer();
+							v.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+							v.setVisible(true);
+						}
 					}
 				}
 			}
