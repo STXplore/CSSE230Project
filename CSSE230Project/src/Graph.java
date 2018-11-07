@@ -73,12 +73,13 @@ public class Graph {
 		Vertex temp = verticesList.get(finish);
 		ArrayList<String> path = new ArrayList<String>();
 		path.add(temp.getPlace().getName());
-		while(temp.getLast() != null) {
-			temp = verticesList.get(temp.getName());
-			path.add(temp.getName());
+		while(temp != null && temp.getLast() != null) {
+			temp = verticesList.get(temp.getLast());
+			if(temp != null) {
+				path.add(temp.getName());
+			}
 		}
-		
-		
+		System.out.println(path);
 		return path;
 		
 	}

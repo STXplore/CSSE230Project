@@ -22,9 +22,9 @@ public class TwoCityVisualizer extends JFrame{
 		JButton closeButton = new JButton("Search Again");
 		JLabel title = new JLabel("Route from " + primary.getName() + " to " + secondary.getName());
 		JLabel distanceTitle = new JLabel("Shortest Distance: ");
-		JLabel distanceRoute = new JLabel("City-City-City-City-City");
+		JLabel distanceRoute = new JLabel(g.Dijkstra(secondary.getName(), primary.getName(), 0).toString());
 		JLabel timeTitle = new JLabel("Fastest drive: ");
-		JLabel timeRoute = new JLabel("City-City-City-City-City");
+		JLabel timeRoute = new JLabel(g.Dijkstra(secondary.getName(), primary.getName(), 1).toString());
 		
 		ActionListener close = new ActionListener(){
 			@Override
