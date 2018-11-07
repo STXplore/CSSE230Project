@@ -40,6 +40,20 @@ public class Place {
 		return links;
 	}
 	
+	public Link getLinkWithMinCost(int costType) {
+		int minInd = 0;
+		double minVal = links.get(0).getCost(costType);
+		
+		for(int i = 1; i < links.size(); i++) {
+			double temp = links.get(i).getCost(costType);
+			if (temp < minVal) {
+				minInd = i;
+				minVal = temp;
+			}
+		}
+		return links.get(minInd);
+	}
+	
 	public ArrayList<String> getPointsKeys() {
 		return pointsKeys;
 	}
