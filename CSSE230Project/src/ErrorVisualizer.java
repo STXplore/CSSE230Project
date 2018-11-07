@@ -17,7 +17,7 @@ public class ErrorVisualizer extends JFrame{
 		content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
 		JLabel errorMessage = new JLabel("The city name you have entered is invalid.");
 		JLabel errorMessage2 = new JLabel("Please enter a valid city name.");
-		JButton closeButton = new JButton("OK");
+		JButton closeButton = new JButton("Sorry about that...");
 		
 		ActionListener close = new ActionListener(){
 			@Override
