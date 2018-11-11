@@ -1,6 +1,8 @@
 
 public class PointOfInterest {
 	
+	//This class is essentially 2 fields, along with getters and setters
+	
 	private String name;
 	private Place parent;
 	
