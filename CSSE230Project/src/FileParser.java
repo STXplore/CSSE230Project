@@ -20,12 +20,12 @@ public class FileParser {
 		Scanner s = new Scanner(new File(fileName));
 		while(s.hasNext()){
 			String line = s.nextLine();
-			if(line.equals("PLACE")){
+			if(line.equals("Place")){
 				addPlace(s, g);
 			}
 		}
 		s.close();
-//		g.printGraph();
+		g.printGraph();
 		return g;
 	}
 	
@@ -34,16 +34,16 @@ public class FileParser {
 		p.setName(s.nextLine());
 		while(s.hasNext()){
 			String line = s.nextLine();
-			if(line.equals("LINK")){
+			if(line.equals("Link")){
 				String linkName = s.nextLine();
 				double[] costs = new double[2];
 				costs[0] = s.nextDouble();
 				costs[1] = s.nextDouble();	
 				Link l = new Link(linkName, costs);
 				p.addLink(l);
-			} else if(line.equals("POINT")){
+			} else if(line.equals("Point")){
 				addPoint(s, p);
-			} else if(line.equals("PLACE")){
+			} else if(line.equals("Place")){
 				addPlace(s, g);
 			}
 		}
