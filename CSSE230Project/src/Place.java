@@ -62,7 +62,7 @@ public class Place {
 	//getter
 	public ArrayList<String> getPointsKeys() {
 		return pointsKeys;
-	}
+a	}
 	
 	//Hashtable lookup with nonexistent keys throwing errors instead of returning null
 	public PointOfInterest getPoint(String key) {
@@ -90,12 +90,16 @@ public class Place {
 		this.name = name;
 	}
 
-	//Returns the first point of interest in the list if there is any, used in visualization
-	public String getSinglePointOfInterest(){
+
+	//Returns an ArrayList of every point of interest as its name
+	public ArrayList<String> getPoints(){
+
 		if(pointsKeys.size() == 0){
-			return "None";
+			ArrayList<String> noneString = new ArrayList<String>();
+			noneString.add("None");
+			return noneString;
 		} else{
-			return this.pointsKeys.get(0);
+			return this.pointsKeys;
 		}
 	}
 
