@@ -81,11 +81,13 @@ public class Place {
 		this.name = name;
 	}
 
-	public String getSinglePointOfInterest(){
+	public ArrayList<String> getPoints(){
 		if(pointsKeys.size() == 0){
-			return "None";
+			ArrayList<String> noneString = new ArrayList<String>();
+			noneString.add("None");
+			return noneString;
 		} else{
-			return this.pointsKeys.get(0);
+			return this.pointsKeys;
 		}
 	}
 

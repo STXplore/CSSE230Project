@@ -73,15 +73,19 @@ public class Graph {
 		Vertex temp = verticesList.get(finish);
 		ArrayList<String> path = new ArrayList<String>();
 		path.add(temp.getPlace().getName());
-		while(temp.getLast() != null) {
-			temp = verticesList.get(temp.getName());
-			path.add(temp.getName());
+		
+		
+		while(temp != null && temp.getLast() != null) {
+			temp = verticesList.get(temp.getLast().getName());
+			if(temp != null) {
+				path.add(temp.getName());
+			}
 		}
-		
-		
+//		System.out.println(path);
 		return path;
 		
 	}
+		
 
 	/**
 	 * This code is unspeakably bad, but it's only for testing purposes.
@@ -92,8 +96,8 @@ public class Graph {
 			ArrayList<Link> listOfLinks =  places.get(keys.get(i)).getLinks();
 			for(int j = 0; j < listOfLinks.size(); j++){
 				System.out.println("	link: " + listOfLinks.get(j).getKey());
-				System.out.println("		Distance: " + listOfLinks.get(j).getCost(0));
-				System.out.println("		Time: " + listOfLinks.get(j).getCost(1));				
+				System.out.println("		cost1: " + listOfLinks.get(j).getCost(0));
+				System.out.println("		cost2: " + listOfLinks.get(j).getCost(1));				
 			}
 			System.out.println("Points of interest:");
 			if(places.get(keys.get(i)).getPointsKeys().size() != 0){
