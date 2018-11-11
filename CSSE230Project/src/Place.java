@@ -62,7 +62,7 @@ public class Place {
 	//getter
 	public ArrayList<String> getPointsKeys() {
 		return pointsKeys;
-a	}
+	}
 	
 	//Hashtable lookup with nonexistent keys throwing errors instead of returning null
 	public PointOfInterest getPoint(String key) {
