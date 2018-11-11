@@ -15,14 +15,21 @@ public class Link {
 		this.costs = costs;
 	}
 	
+	//just a getter
 	public String getKey() {
 		return key;
 	}
 	
+	//gets cost at index i
+	//i = 0 is distance
+	//i = 1 is time
 	public double getCost(int i) {
 		return costs[i];
 	}
 	
+	//sets cost at index i
+	//i = 0 is distance
+	//i = 1 is time
 	public void setCost(int index, int value) {
 		costs[index] = value;
 	}

@@ -26,20 +26,25 @@ public class Place {
 		points = new Hashtable<String, PointOfInterest>();
 	}
 	
+	//does what it says on the can
 	public void addLink(Link l) {
 		links.add(l);
 	}
 	
+	//ensures that the point of interest is properly set into both lists and proper sets its parent
 	public void addPoint(PointOfInterest p) {
 		pointsKeys.add(p.getName());
 		points.put(p.getName(), p);
 		p.setParent(this);
 	}
 	
+	//getter
 	public ArrayList<Link> getLinks() {
 		return links;
 	}
 	
+	//originally used in Djikstra, but no longer used, does what it says on the can
+	//costType 0 used distance cost and 1 used time cost
 	public Link getLinkWithMinCost(int costType) {
 		int minInd = 0;
 		double minVal = links.get(0).getCost(costType);
@@ -54,10 +59,12 @@ public class Place {
 		return links.get(minInd);
 	}
 	
+	//getter
 	public ArrayList<String> getPointsKeys() {
 		return pointsKeys;
-	}
+a	}
 	
+	//Hashtable lookup with nonexistent keys throwing errors instead of returning null
 	public PointOfInterest getPoint(String key) {
 		
 		if(key == null) {
@@ -73,15 +80,20 @@ public class Place {
 		return ret;
 	}
 	
+	//getter
 	public String getName() {
 		return name;
 	}
 	
+	//setter
 	public void setName(String name) {
 		this.name = name;
 	}
 
+
+	//Returns an ArrayList of every point of interest as its name
 	public ArrayList<String> getPoints(){
+
 		if(pointsKeys.size() == 0){
 			ArrayList<String> noneString = new ArrayList<String>();
 			noneString.add("None");
