@@ -8,14 +8,7 @@ public class FileParser {
 	private Graph graph;
 	
 	public FileParser(){
-		try{
-			//attempt to parse the file.
-			this.graph = parseFile();
-		} catch(IOException e){
-			//the file isn't working for some reason, close the program.
-			System.out.println("Error parsing file. Closing.");
-			System.exit(-1);
-		}
+		
 	}
 	
 	public Graph parseFile() throws IOException{
@@ -26,7 +19,7 @@ public class FileParser {
 		//set up a scanner to read the file
 		Scanner s = new Scanner(new File(fileName));
 
-		while(s.hasNext()){
+		if(s.hasNext()){
 			//if the next line matches the code for a place (which it should), start adding places
 			String line = s.nextLine();
 			if(line.equals("Place")){
@@ -60,6 +53,7 @@ public class FileParser {
 			} else if(line.equals("Place")){
 				//it's a new place, start this method again
 				addPlace(s, g);
+				break;
 			}
 		}
 		//add the newly created place to the graph
